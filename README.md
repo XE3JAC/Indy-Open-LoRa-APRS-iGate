@@ -21,7 +21,7 @@ La idea es desarrollar una plataforma híbrida basada en una **TNC Indy Open** y
 >
 > ⚠️ **Las funcionalidades pueden cambiar, añadirse, modificarse o eliminarse durante el proceso de desarrollo y pruebas.**
 >
-> Algunas funciones mostradas en imágenes, diagramas o material promocional son conceptos previstos y **pueden no estar implementadas todavía**.
+> Algunas funciones mostradas en imágenes, diagramas o material promocional son conceptos previstos.
 
 ---
 
@@ -52,7 +52,7 @@ La TNC se encargará del mundo APRS / AX.25 en VHF, mientras que la LILYGO ESP32
 
 ## 🔧 Hardware previsto
 
-El proyecto contempla una pequeña PCB propia que podrá integrar:
+El proyecto contempla una PCB propia que podrá integrar:
 
 - Indy Open TNC
 - Audio de entrada y salida hacia el radio
@@ -71,22 +71,13 @@ La intención es que esta placa pueda utilizarse con diferentes modelos compatib
 
 La parte APRS utilizará un radio VHF convencional trabajando en **144.390 MHz**, conectado a la Indy Open TNC.
 
-El objetivo es poder:
-
-- Recibir tramas APRS
-- Procesar AX.25
-- Enviar información hacia APRS-IS
-- Mostrar actividad y estado
-- Registrar eventos y estadísticas
-- Aprovechar futuras funciones de ajuste automático de audio
-
 ---
 
-## 📡 LoRa 433 MHz
+## 📡 LoRa APRS en 433 MHz
 
-La LILYGO añadirá un segundo enlace de radio mediante **LoRa 433 MHz**.
+La LILYGO añadirá el enlace de radio mediante **LoRa 433 MHz**.
 
-Esto permitirá explorar funciones como:
+Esto permitirá funciones como:
 
 - Comunicación entre nodos Indy Open
 - Mensajería entre radioaficionados
@@ -101,7 +92,7 @@ Esto permitirá explorar funciones como:
 
 ## 🌐 APRS-IS
 
-El ESP32 podrá utilizar Wi-Fi para conectarse a APRS-IS.
+El ESP32 cuente con Wi-Fi podra conectarse a APRS-IS.
 
 Uno de los objetivos principales es que el sistema pueda actuar como puente entre:
 
@@ -116,14 +107,12 @@ APRS-IS
 y también:
 
 ```text
-LoRa 433 MHz
+LoRa APRS 433 MHz
    ↕
 Indy Open LoRa
    ↕
 APRS-IS
 ```
-
-El comportamiento final del gateway y las reglas de encaminamiento se definirán durante el desarrollo y las pruebas.
 
 ---
 
@@ -133,17 +122,15 @@ El comportamiento final del gateway y las reglas de encaminamiento se definirán
 
 Equipo fijo capaz de trabajar con:
 
-**APRS VHF + LoRa 433 MHz + APRS-IS**
+**APRS VHF + LoRa APRS 433 MHz + APRS-IS**
 
 ### 📍 Tracker
 
-Nodo LoRa capaz de enviar posición, telemetría y otros datos.
+Nodo LoRa APRS capaz de enviar posición, telemetría y otros datos.
 
-### 💬 Messenger
+### 💬 Indy Open Messenger
 
-Mensajería directa entre dispositivos Indy Open mediante LoRa.
-
-La intención es que **Indy Open LoRa Messenger** pueda comunicarse también con **Indy Open HamWatch** utilizando un protocolo común.
+Mensajería directa y de APRS entre dispositivos Indy Open mediante LoRa.
 
 ### 🦊 Fox Hunt
 
@@ -155,102 +142,11 @@ Experimentación con balizas LoRa, RSSI/SNR y búsqueda de transmisores.
 
 Queremos desarrollar un protocolo abierto de mensajería para que distintos dispositivos de la familia Indy Open puedan comunicarse.
 
-Ejemplo:
-
-```text
-Indy Open LoRa
-      │
-      │ LoRa 433 MHz
-      ▼
-Indy Open HamWatch
-```
-
-También:
-
-```text
-LILYGO LoRa
-      │
-      ▼
-Gateway Indy Open
-      │
-      ▼
-Otro nodo LoRa
-```
-
-El protocolo podrá evolucionar para transportar:
-
-- Indicativo
-- Mensajes
-- Posición
-- Telemetría
-- Batería
-- RSSI
-- SNR
-- Estado del nodo
-
 ---
 
-## 🖥️ Firmware
+## 🖥️ Firmware y Hardware
 
-Además del hardware, desarrollaremos un firmware específico para la LILYGO ESP32.
-
-Entre las funciones previstas:
-
-- Configuración Wi-Fi
-- APRS-IS
-- Control y comunicación con la TNC
-- LoRa 433 MHz
-- Messenger
-- Monitor de estaciones
-- Registro de actividad
-- Pantalla OLED
-- Tarjeta SD, cuando el hardware lo permita
-- Actualización de firmware
-- Interfaz web
-- Estadísticas
-- Herramientas de diagnóstico
-
----
-
-## 🌎 Parte de la familia Indy Open
-
-Indy Open LoRa forma parte de:
-
-- 📡 **Indy Open APRS**
-- 🔧 **Indy Open TNC**
-- 📻 **Indy Open LoRa**
-- ⌚ **Indy Open HamWatch**
-
-Todos comparten la misma idea:
-
-**crear herramientas abiertas para experimentar, aprender, modificar y aportar nuevas ideas a la comunidad radioaficionada.**
-
----
-
-## 🧪 Estado del proyecto
-
-🚧 **EN DESARROLLO ACTIVO**
-
-Actualmente estamos trabajando en la definición de:
-
-- Arquitectura general
-- PCB para TNC e interfaz con radio
-- Integración con LILYGO ESP32
-- Comunicación entre TNC y ESP32
-- LoRa 433 MHz
-- Protocolo Indy Open LoRa
-- Messenger
-- Integración APRS-IS
-- Interfaz web
-- Pantallas y experiencia de usuario
-
-### ⚠️ Importante
-
-**Las funcionalidades finales pueden variar conforme avance el desarrollo.**
-
-Durante las pruebas algunas características pueden ser modificadas, sustituidas, ampliadas o descartadas.
-
-Las imágenes y diagramas publicados deben considerarse **conceptos de diseño** y no necesariamente representan el hardware o firmware final.
+Además del hardware la PCB, desarrollaremos un firmware específico para la LILYGO ESP32.
 
 ---
 
@@ -277,30 +173,3 @@ Si quieres ayudar a continuar desarrollando placas, probando hardware y creando 
 
 ❤️ **Las donaciones son completamente opcionales.**
 
-**Próximamente añadiremos aquí las opciones disponibles para apoyar el desarrollo.**
-
----
-
-## ⚠️ Aviso
-
-Este proyecto tiene fines educativos y experimentales relacionados con la radioafición.
-
-El usuario es responsable de operar cualquier transmisor respetando la legislación aplicable, las frecuencias autorizadas, los límites de potencia y las condiciones correspondientes a su licencia.
-
----
-
-## 📜 Open Source
-
-Indy Open LoRa nace con la intención de ser un proyecto abierto.
-
-Queremos que cualquier radioaficionado pueda:
-
-**aprender → experimentar → modificar → mejorar → compartir**
-
----
-
-## 📡 Indy Open
-
-### Innovación abierta para la comunidad radioaficionada.
-
-**Tu radio. Tu red. Tu proyecto.**
