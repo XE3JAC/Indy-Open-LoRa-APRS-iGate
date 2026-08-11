@@ -173,3 +173,6 @@ Si quieres ayudar a continuar desarrollando placas, probando hardware y creando 
 
 ❤️ **Las donaciones son completamente opcionales.**
 
+[![Donar con PayPal](https://www.paypalobjects.com/es_XC/MX/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?hosted_button_id=2RX7AT3HP4RNG)
+
+**¡Gracias por apoyar Indy Open APRS! 73 de XE3JAC**
