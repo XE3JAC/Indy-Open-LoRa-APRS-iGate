@@ -35,7 +35,7 @@ De forma sencilla:
 Radio VHF 144.390 MHz
         │
         ▼
-   Indy Open TNC
+  PCB de Indy Open TNC
         │
         ▼
  LILYGO ESP32 LoRa
