@@ -1,10 +1,10 @@
-# 📡 Indy Open LoRa
+# 📡 Indy Open LoRa APRS iGate
 
 ### APRS VHF + LoRa 433 MHz + APRS-IS
 
 ![Indy Open LoRa Concept](./indy-open-lora-concept.png)
 
-**Indy Open LoRa** es un proyecto abierto de la familia **Indy Open** pensado para unir dos mundos de la radioafición en un mismo sistema:
+**Indy Open LoRa APRS iGate** es un proyecto abierto de la familia **Indy Open** pensado para unir dos mundos de la radioafición en un mismo sistema:
 
 - 📻 **APRS tradicional en VHF 144.390 MHz**
 - 📡 **LoRa en 433 MHz**
@@ -15,7 +15,7 @@ La idea es desarrollar una plataforma híbrida basada en una **TNC Indy Open** y
 > [!IMPORTANT]
 > ## 🚧 PROYECTO EN DESARROLLO
 >
-> **Indy Open LoRa se encuentra actualmente en desarrollo activo.**
+> **Indy Open LoRa APRS iGate se encuentra actualmente en desarrollo activo.**
 >
 > Las características, funciones, hardware, pantallas, modos de operación y especificaciones descritas en este repositorio representan la visión actual del proyecto.
 >
