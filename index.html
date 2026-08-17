@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Indy Open LoRa APRS iGate — APRS VHF, LoRa 433 MHz y APRS-IS.">
+<title>Indy Open LoRa APRS iGate</title>
+<style>
+:root {
+  color-scheme: dark;
+  --bg:#081018; --panel:#0e1823; --panel2:#111f2d;
+  --text:#e9f1f7; --muted:#9eb0be; --line:#263746;
+  --accent:#64d8cb; --accent2:#78a9ff; --warn:#ffcc66;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:
+radial-gradient(circle at top,#12293a 0,#081018 38%);color:var(--text);line-height:1.65}
+main{max-width:960px;margin:auto;padding:42px 22px 70px}
+article{background:rgba(14,24,35,.92);border:1px solid var(--line);border-radius:22px;
+padding:clamp(22px,5vw,52px);box-shadow:0 18px 60px rgba(0,0,0,.3)}
+h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;margin:.2em 0 .35em;color:#fff}
+h2{margin-top:2em;color:var(--accent)} h3{color:#b9d3ff}
+p,li{font-size:1.04rem} strong{color:#fff}
+a{color:var(--accent2);text-decoration:none} a:hover{text-decoration:underline}
+img{display:block;max-width:100%;height:auto;margin:24px auto;border-radius:16px}
+ul{padding-left:1.4rem} li{margin:.35rem 0}
+hr{border:0;border-top:1px solid var(--line);margin:36px 0}
+.notice{background:linear-gradient(135deg,rgba(255,204,102,.10),rgba(100,216,203,.06));
+border:1px solid rgba(255,204,102,.45);border-left:5px solid var(--warn);
+border-radius:14px;padding:16px 20px;margin:24px 0}
+.notice-title{font-weight:800;color:var(--warn);letter-spacing:.04em}
+.notice h2{margin:.35em 0;color:var(--warn)}
+pre{overflow:auto;background:#050a0f;border:1px solid var(--line);border-radius:14px;
+padding:18px;color:#c9f7ef;line-height:1.45}
+code{font-family:"Cascadia Code","SFMono-Regular",Consolas,monospace}
+footer{text-align:center;color:var(--muted);padding:24px 4px 0;font-size:.92rem}
+@media(max-width:600px){main{padding:18px 10px 40px}article{border-radius:14px;padding:20px 17px}}
+</style>
+</head>
+<body>
+<main>
+<article>
+<h1>📡 Indy Open LoRa APRS iGate</h1>
+<h3>APRS VHF + LoRa 433 MHz + APRS-IS</h3>
+<p><img src="./indy-open-lora-concept.png" alt="Indy Open LoRa Concept"></p>
+<p><strong>Indy Open LoRa APRS iGate</strong> es un proyecto abierto de la familia <strong>Indy Open</strong> pensado para unir dos mundos de la radioafición en un mismo sistema:</p>
+<ul>
+<li>📻 <strong>APRS tradicional en VHF 144.390 MHz</strong></li>
+<li>📡 <strong>LoRa en 433 MHz</strong></li>
+<li>🌐 <strong>Conectividad con APRS-IS mediante Wi-Fi</strong></li>
+</ul>
+<p>La idea es desarrollar una plataforma híbrida basada en una <strong>TNC Indy Open</strong> y una placa <strong>LILYGO ESP32 LoRa</strong>, capaz de recibir, procesar, visualizar y compartir información tanto desde APRS convencional como desde nodos LoRa.</p>
+<div class="notice"><div class="notice-title">⚠️ IMPORTANTE</div>
+<h2>🚧 PROYECTO EN DESARROLLO</h2>
+<p><strong>Indy Open LoRa APRS iGate se encuentra actualmente en desarrollo activo.</strong></p>
+<p>Las características, funciones, hardware, pantallas, modos de operación y especificaciones descritas en este repositorio representan la visión actual del proyecto.</p>
+<p>⚠️ <strong>Las funcionalidades pueden cambiar, añadirse, modificarse o eliminarse durante el proceso de desarrollo y pruebas.</strong></p>
+<p>Algunas funciones mostradas en imágenes, diagramas o material promocional son conceptos previstos.</p></div>
+<hr>
+<h2>💡 La idea</h2>
+<p>Queremos crear un equipo que permita trabajar al mismo tiempo con APRS convencional y LoRa.</p>
+<p>De forma sencilla:</p>
+<pre><code>Radio VHF 144.390 MHz
+        │
+        ▼
+  PCB de Indy Open TNC
+        │
+        ▼
+ LILYGO ESP32 LoRa
+     │         │
+     │         └──── LoRa 433 MHz
+     │
+     └────────────── APRS-IS
+                     por Wi-Fi</code></pre>
+<p>La TNC se encargará del mundo APRS / AX.25 en VHF, mientras que la LILYGO ESP32 gestionará LoRa 433 MHz, la conexión a Internet, la interfaz, los registros y el intercambio de información con APRS-IS.</p>
+<hr>
+<h2>🔧 Hardware previsto</h2>
+<p>El proyecto contempla una PCB propia que podrá integrar:</p>
+<ul>
+<li>Indy Open TNC</li>
+<li>Audio de entrada y salida hacia el radio</li>
+<li>PTT</li>
+<li>Conectores hacia el equipo VHF</li>
+<li>Potenciómetro digital para ajuste de nivel</li>
+<li>Conexión UART hacia la LILYGO ESP32</li>
+<li>Alimentación y protecciones</li>
+<li>Conectores modulares para facilitar pruebas y futuras versiones</li>
+</ul>
+<p>La intención es que esta placa pueda utilizarse con diferentes modelos compatibles de <strong>LILYGO ESP32 LoRa</strong>, evitando depender de una sola versión de hardware.</p>
+<hr>
+<h2>📻 APRS VHF</h2>
+<p>La parte APRS utilizará un radio VHF convencional trabajando en <strong>144.390 MHz</strong>, conectado a la Indy Open TNC.</p>
+<hr>
+<h2>📡 LoRa APRS en 433 MHz</h2>
+<p>La LILYGO añadirá el enlace de radio mediante <strong>LoRa 433 MHz</strong>.</p>
+<p>Esto permitirá funciones como:</p>
+<ul>
+<li>Comunicación entre nodos Indy Open</li>
+<li>Mensajería entre radioaficionados</li>
+<li>Telemetría</li>
+<li>Trackers</li>
+<li>Balizas</li>
+<li>Información de sensores</li>
+<li>RSSI y SNR</li>
+<li>Enlaces de experimentación de largo alcance y bajo consumo</li>
+</ul>
+<hr>
+<h2>🌐 APRS-IS</h2>
+<p>El ESP32 cuente con Wi-Fi podra conectarse a APRS-IS.</p>
+<p>Uno de los objetivos principales es que el sistema pueda actuar como puente entre:</p>
+<pre><code>APRS VHF
+   ↕
+Indy Open LoRa
+   ↕
+APRS-IS</code></pre>
+<p>y también:</p>
+<pre><code>LoRa APRS 433 MHz
+   ↕
+Indy Open LoRa
+   ↕
+APRS-IS</code></pre>
+<hr>
+<h2>🚀 Modos que queremos explorar</h2>
+<h3>🛰️ Gateway</h3>
+<p>Equipo fijo capaz de trabajar con:</p>
+<p><strong>APRS VHF + LoRa APRS 433 MHz + APRS-IS</strong></p>
+<h3>📍 Tracker</h3>
+<p>Nodo LoRa APRS capaz de enviar posición, telemetría y otros datos.</p>
+<h3>💬 Indy Open Messenger</h3>
+<p>Mensajería directa y de APRS entre dispositivos Indy Open mediante LoRa.</p>
+<h3>🦊 Fox Hunt</h3>
+<p>Experimentación con balizas LoRa, RSSI/SNR y búsqueda de transmisores.</p>
+<hr>
+<h2>💬 Indy Open Messenger</h2>
+<p>Queremos desarrollar un protocolo abierto de mensajería para que distintos dispositivos de la familia Indy Open puedan comunicarse.</p>
+<hr>
+<h2>🖥️ Firmware y Hardware</h2>
+<p>Además del hardware la PCB, desarrollaremos un firmware específico para la LILYGO ESP32.</p>
+<hr>
+<h2>⭐ Sigue el proyecto</h2>
+<p>Si te interesa Indy Open LoRa:</p>
+<ul>
+<li>⭐ Dale una <strong>Star</strong> al repositorio</li>
+<li>👀 Usa <strong>Watch</strong> para recibir actualizaciones</li>
+<li>🍴 Haz <strong>Fork</strong> si quieres experimentar</li>
+<li>💡 Comparte ideas y sugerencias</li>
+<li>🐛 Reporta errores</li>
+<li>🤝 Colabora con código, pruebas o documentación</li>
+</ul>
+<p>Cada aportación ayuda a que el proyecto siga creciendo.</p>
+<hr>
+<h2>☕ Apoya el proyecto</h2>
+<p>Indy Open es un proyecto comunitario desarrollado por interés en la radioafición, la experimentación y el hardware/software abierto.</p>
+<p>Si quieres ayudar a continuar desarrollando placas, probando hardware y creando nuevas funciones, podrás apoyar voluntariamente el proyecto.</p>
+<p>❤️ <strong>Las donaciones son completamente opcionales.</strong></p>
+<p><a href="https://www.paypal.com/donate?hosted_button_id=2RX7AT3HP4RNG"><img src="https://www.paypalobjects.com/es_XC/MX/i/btn/btn_donateCC_LG.gif" alt="Donar con PayPal"></a></p>
+<p><strong>¡Gracias por apoyar Indy Open APRS! 73 de XE3JAC</strong></p>
+</article>
+<footer>Indy Open Project · XE3JAC</footer>
+</main>
+</body>
+</html>
