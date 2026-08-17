@@ -2,7 +2,7 @@
 
 ### APRS VHF + LoRa 433 MHz + APRS-IS
 
-![Indy Open LoRa Concept](./indy-open-lora-concept.png)
+![Indy Open LoRa](./lora.png)
 
 **Indy Open LoRa APRS iGate** es un proyecto abierto de la familia **Indy Open** pensado para unir dos mundos de la radioafición en un mismo sistema:
 
@@ -79,7 +79,7 @@ La LILYGO añadirá el enlace de radio mediante **LoRa 433 MHz**.
 
 Esto permitirá funciones como:
 
-- Comunicación entre nodos Indy Open
+- Comunicación entre nodos LoRa
 - Mensajería entre radioaficionados
 - Telemetría
 - Trackers
@@ -123,18 +123,6 @@ APRS-IS
 Equipo fijo capaz de trabajar con:
 
 **APRS VHF + LoRa APRS 433 MHz + APRS-IS**
-
-### 📍 Tracker
-
-Nodo LoRa APRS capaz de enviar posición, telemetría y otros datos.
-
-### 💬 Indy Open Messenger
-
-Mensajería directa y de APRS entre dispositivos Indy Open mediante LoRa.
-
-### 🦊 Fox Hunt
-
-Experimentación con balizas LoRa, RSSI/SNR y búsqueda de transmisores.
 
 ---
 
